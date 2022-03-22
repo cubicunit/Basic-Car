@@ -36,8 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/scripts/car_root.cs" />
-     <Compile Include="Assets/CameraFollow.cs" />
+     <Compile Include="Assets/Scripts/CameraFollow.cs" />
+     <Compile Include="Assets/Scripts/car_root.cs" />
+     <Compile Include="Assets/Scripts/ParkTrigger.cs" />
+     <Compile Include="Assets/Dialog UI/Scripts/DialogUI.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
