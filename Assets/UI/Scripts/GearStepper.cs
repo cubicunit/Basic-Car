@@ -51,8 +51,8 @@ public class GearStepper : MonoBehaviour
 
     private GEARBOX champGear(int gear) {
         int thisGear = gear;
-        if (thisGear < (int)GEARBOX.PARK) thisGear = (int)GEARBOX.PARK; 
-        if (thisGear > (int)GEARBOX.DRIVE)   thisGear = (int)GEARBOX.DRIVE;
+        if (thisGear < (int)GEARBOX.PARK)  thisGear = (int)GEARBOX.PARK; 
+        if (thisGear > (int)GEARBOX.DRIVE) thisGear = (int)GEARBOX.DRIVE;
         return (GEARBOX)thisGear;
     }
 
