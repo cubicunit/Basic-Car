@@ -36,10 +36,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Scripts/Constant.cs" />
      <Compile Include="Assets/Scripts/CameraFollow.cs" />
-     <Compile Include="Assets/Scripts/car_root.cs" />
+     <Compile Include="Assets/Scripts/CarController.cs" />
+     <Compile Include="Assets/UI/Scripts/Draggable.cs" />
+     <Compile Include="Assets/UI/Scripts/DialogUI.cs" />
      <Compile Include="Assets/Scripts/ParkTrigger.cs" />
-     <Compile Include="Assets/Dialog UI/Scripts/DialogUI.cs" />
+     <Compile Include="Assets/UI/Scripts/GearStepper.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -176,7 +179,7 @@
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-        <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UIElementsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsNativeModule">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UIElementsNativeModule.dll</HintPath>
@@ -251,7 +254,7 @@
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.SceneTemplateModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UIElementsModule">
-        <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UIElementsModule.dll</HintPath>
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.UIElementsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UIElementsSamplesModule">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UIElementsSamplesModule.dll</HintPath>
@@ -639,6 +642,18 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIBuilderModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.UIBuilderModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreTextEngineModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TextCoreTextEngineModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsInputSystemModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UIElementsInputSystemModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
