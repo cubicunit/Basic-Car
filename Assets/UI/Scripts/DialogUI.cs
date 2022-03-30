@@ -8,7 +8,7 @@ namespace EasyUI.Dialogs {
         public string Title = "Title";
         public string Message = "Message goes here.";
     }
-
+ 
     public class DialogUI : MonoBehaviour
     {
         [SerializeField] GameObject canvas;
