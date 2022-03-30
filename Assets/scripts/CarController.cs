@@ -44,7 +44,7 @@ public class CarController : MonoBehaviour
 
 
     public void FixedUpdate()
-    {
+    { 
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
 
