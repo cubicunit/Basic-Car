@@ -12,4 +12,10 @@ namespace BasicCarParking {
         UP = 1,
         DOWN = -1
     }
+
+    public enum VIEWTYPE {
+        FIRST_PERSON_VIEW = 0,
+        TOP_DOWN_VIEW = 1,
+        THIRD_PERSON_VIEW = 2
+    }
 }

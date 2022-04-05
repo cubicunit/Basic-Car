@@ -43,6 +43,7 @@
      <Compile Include="Assets/UI/Scripts/DialogUI.cs" />
      <Compile Include="Assets/Scripts/ParkTrigger.cs" />
      <Compile Include="Assets/UI/Scripts/GearStepper.cs" />
+     <Compile Include="Assets/Scripts/GameMaster.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -613,6 +614,9 @@
     <Reference Include="mscorlib">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.TextCoreTextEngineModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -631,6 +635,9 @@
     <Reference Include="Unity.TextMeshPro">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.TextCoreTextEngineModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -640,17 +647,11 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UIBuilderModule">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.UIBuilderModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.TextCoreTextEngineModule">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.TextCoreTextEngineModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.TextCoreTextEngineModule">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsInputSystemModule">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UIElementsInputSystemModule.dll</HintPath>

@@ -57,12 +57,6 @@ public class GearStepper : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetButtonDown("Gear Up")) {
-            changeGear(GEARDIR.UP);
-        } else if (Input.GetButtonDown("Gear Down")) {
-            changeGear(GEARDIR.DOWN);
-        }
-
         switch (gear) {
             case GEARBOX.PARK:
                 slider.value = 1;

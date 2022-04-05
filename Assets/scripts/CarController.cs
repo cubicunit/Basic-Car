@@ -17,11 +17,25 @@ public class CarController : MonoBehaviour
     public float maxBrakeTorque;
     public float maxSteeringAngle;
     public GEARBOX gearBox;
-
     public float creepingGas;
+
+    private float inputGas;
+    private float inputBrake;
+    private float inputSteer;
 
     public void setGear(GEARBOX gear) {
         this.gearBox = gear;
+    }
+
+    public void gasBrake(float inputVertical) {
+        //Gas
+        inputGas = (inputVertical > 0)? Mathf.Abs(inputVertical):0.0f;
+        inputBrake = (inputVertical < 0)? Mathf.Abs(inputVertical):0.0f;
+    }
+
+    public void steer(float inputHorizontal) {
+        //Steering
+        inputSteer = inputHorizontal;
     }
 
     // finds the corresponding visual wheel
@@ -44,32 +58,25 @@ public class CarController : MonoBehaviour
 
 
     public void FixedUpdate()
-    { 
-        float inputHorizontal = Input.GetAxis("Horizontal");
-        float inputVertical = Input.GetAxis("Vertical");
-
-        //Steering
-        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-
-        //Gas
-        float gas = (inputVertical > 0)? Mathf.Abs(inputVertical):creepingGas;
-        float brake = (inputVertical < 0)? Mathf.Abs(inputVertical):0.0f;
+    {         
+        float motorGas = 0;
+        float motorBrake = 0;
+        float steering = inputSteer * maxSteeringAngle;
         int gear = (int)gearBox;
 
-        float motorGas = 0; 
-        float motorBrake = 0;
         if (gearBox == GEARBOX.PARK) {
             motorGas = 0;
             motorBrake = maxBrakeTorque;
         } else {
-            if (brake > 0) {
-                motorBrake = maxBrakeTorque * brake;
+            if (inputBrake > 0) {
+                motorGas = 0;
+                motorBrake = maxBrakeTorque * inputBrake;
             } else {
-                motorGas = (maxMotorTorque * gear * gas);
+                inputGas = (inputGas == 0)?creepingGas:inputGas;
+                motorGas = (maxMotorTorque * gear * inputGas);
+                motorBrake = 0;
             }
         }
-
- Debug.Log("gas:" +gas + ", brake: "+ brake+", motorGas: "+ motorGas +", motorBrake: "+ motorBrake);
 
         foreach (AxleInfo axleInfo in axleInfos) {
             if (axleInfo.steering) {
