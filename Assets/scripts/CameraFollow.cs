@@ -3,24 +3,32 @@ using BasicCarParking;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target; 
+    public GameObject gm; 
+
+    private Transform target;
+
     public float smoothSpeed = 0.20f;
-    public Vector3 offset;
+
+    [Header("Third Person View Offset")]
+    public Vector3 thirdPersonOffset;
 
     public VIEWTYPE viewType = VIEWTYPE.THIRD_PERSON_VIEW;
 
-    private void firstPersonView() {
-        Transform lookingAt = GameObject.Find("Car").transform.Find("LookingAt");
+    private void Start() {
+        target = gm.GetComponent<GameMaster>().player.transform;
+    }
 
-        Vector3 desiredPosition = target.position; 
-        Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
-        this.transform.position = smoothPosition;
+    private void firstPersonView() {
+        Transform lookingAt = target.Find("LookingAt");
+
+        Vector3 desiredPosition = target.Find("First Person View Point").position;
+        this.transform.position = desiredPosition;
 
         this.transform.LookAt(lookingAt);   
     }
 
     private void topDownView() {
-        Vector3 desiredPosition = target.position + new Vector3(0,10,0);
+        Vector3 desiredPosition = target.Find("Top Down View Point").position;
         Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
         this.transform.position = smoothPosition;
 
@@ -32,7 +40,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void thirdPersonView() {
-        Vector3 desiredPosition = target.position + offset;
+        Vector3 desiredPosition = target.position + thirdPersonOffset;
         Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
         this.transform.position = smoothPosition;
 

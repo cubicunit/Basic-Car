@@ -27,10 +27,30 @@ public class CarController : MonoBehaviour
         this.gearBox = gear;
     }
 
+    public void changeGear(GEARDIR dir) {
+        int thisGear = (int)this.gearBox;
+    
+        if (dir == GEARDIR.UP) {
+            thisGear++;
+        } else {
+            thisGear--;
+        }
+
+        this.gearBox = champGear(thisGear);
+        // playerCar.GetComponent<CarController>().setGear(gear);
+    }
+
+    private GEARBOX champGear(int gear) {
+        int thisGear = gear;
+        if (thisGear < (int)GEARBOX.PARK)  thisGear = (int)GEARBOX.PARK; 
+        if (thisGear > (int)GEARBOX.DRIVE) thisGear = (int)GEARBOX.DRIVE;
+        return (GEARBOX)thisGear;
+    }
+
     public void gasBrake(float inputVertical) {
         //Gas
         inputGas = (inputVertical > 0)? Mathf.Abs(inputVertical):0.0f;
-        inputBrake = (inputVertical < 0)? Mathf.Abs(inputVertical):0.0f;
+        inputBrake = (inputVertical < 0)? 1.0f:0.0f;
     }
 
     public void steer(float inputHorizontal) {

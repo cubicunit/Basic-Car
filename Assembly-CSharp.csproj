@@ -42,8 +42,8 @@
      <Compile Include="Assets/UI/Scripts/Draggable.cs" />
      <Compile Include="Assets/UI/Scripts/DialogUI.cs" />
      <Compile Include="Assets/Scripts/ParkTrigger.cs" />
-     <Compile Include="Assets/UI/Scripts/GearStepper.cs" />
      <Compile Include="Assets/Scripts/GameMaster.cs" />
+     <Compile Include="Assets/UI/Scripts/GearStepper.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -614,9 +614,6 @@
     <Reference Include="mscorlib">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.24f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.TextCoreTextEngineModule">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.TextCoreTextEngineModule.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -626,8 +623,8 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
@@ -635,8 +632,11 @@
     <Reference Include="Unity.TextMeshPro">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.TextCoreTextEngineModule">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+    <Reference Include="Unity.ProBuilder">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -650,14 +650,40 @@
     <Reference Include="UnityEditor.UIBuilderModule">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.UIBuilderModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsInputSystemModule">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UIElementsInputSystemModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.TextCoreTextEngineModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TextCoreTextEngineModule">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="SimpleInput.Editor.csproj">
+      <Project>{d25b6eff-462e-90c2-8add-1572daae0be6}</Project>
+      <Name>SimpleInput.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleInput.Runtime.csproj">
+      <Project>{da2b5dbb-e421-c961-4616-3386796ac51d}</Project>
+      <Name>SimpleInput.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -5,13 +5,17 @@ using BasicCarParking;
 public class GearStepper : MonoBehaviour
 {
     [SerializeField]
-    public GameObject playerCar;
+    public GameObject gm;
 
     [SerializeField]
     public Slider slider;
 
     [SerializeField]
-    public GEARBOX gear = GEARBOX.PARK;
+    public GEARBOX gear;
+
+    private void Start() {
+        this.gear = gm.GetComponent<GameMaster>().player.GetComponent<CarController>().gearBox;
+    }
 
     public void onSilderValueChanged() {
         GEARBOX newGear = gear;
@@ -28,7 +32,7 @@ public class GearStepper : MonoBehaviour
 
         if (newGear != gear) {
             gear = newGear;
-            playerCar.GetComponent<CarController>().setGear(gear);
+            gm.GetComponent<GameMaster>().setGear(gear);
         }
     }
 
@@ -46,7 +50,6 @@ public class GearStepper : MonoBehaviour
         }
 
         this.gear = champGear(thisGear);
-        playerCar.GetComponent<CarController>().setGear(gear);
     }
 
     private GEARBOX champGear(int gear) {

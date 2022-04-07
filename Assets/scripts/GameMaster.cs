@@ -21,6 +21,16 @@ public class GameMaster : MonoBehaviour
         mainCamera.GetComponent<CameraFollow>().changeView(viewType);
     }
 
+    public void setGear(GEARBOX gear) {
+        gearStepper.GetComponent<GearStepper>().setGear(gear);
+        player.GetComponent<CarController>().setGear(gear);
+    }
+
+    public void changeGear(GEARDIR dir) {
+        gearStepper.GetComponent<GearStepper>().changeGear(dir);
+        player.GetComponent<CarController>().changeGear(dir);
+    }
+
     private void Update() {
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
@@ -29,9 +39,9 @@ public class GameMaster : MonoBehaviour
         player.GetComponent<CarController>().steer(inputHorizontal);
 
         if (Input.GetButtonDown("Gear Up")) {
-            gearStepper.GetComponent<GearStepper>().changeGear(GEARDIR.UP);
+            changeGear(GEARDIR.UP);
         } else if (Input.GetButtonDown("Gear Down")) {
-            gearStepper.GetComponent<GearStepper>().changeGear(GEARDIR.DOWN);
+            changeGear(GEARDIR.DOWN);
         }
     }
 
