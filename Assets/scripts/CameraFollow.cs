@@ -19,12 +19,14 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void firstPersonView() {
-        Transform lookingAt = target.Find("LookingAt");
+        Transform viewPoint = target.Find("First Person View Point");
+        Transform lookAt = viewPoint.Find("LookAt");
 
-        Vector3 desiredPosition = target.Find("First Person View Point").position;
-        this.transform.position = desiredPosition;
+        Vector3 desiredPosition = viewPoint.position;
+        Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
+        this.transform.position = smoothPosition;
 
-        this.transform.LookAt(lookingAt);   
+        this.transform.LookAt(lookAt.position);   
     }
 
     private void topDownView() {
@@ -32,11 +34,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
         this.transform.position = smoothPosition;
 
-        Vector3 z = new Vector3(0,0,1);
-        Matrix4x4 t = target.transform.localToWorldMatrix;
-        Vector3 up = t.MultiplyVector(z);
-
-        this.transform.LookAt(target, up);
+        this.transform.LookAt(target, target.forward);
     }
 
     private void thirdPersonView() {
@@ -51,6 +49,12 @@ public class CameraFollow : MonoBehaviour
         this.viewType = view;
     }
 
+    private void transitViewPoint(Vector3 desiredPosition){
+        Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
+        this.transform.position = smoothPosition;
+
+        this.transform.LookAt(target);
+    }
 
     // Update is called once per frame
     private void FixedUpdate() {

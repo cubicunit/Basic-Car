@@ -16,14 +16,24 @@ public class CarController : MonoBehaviour
     public float maxMotorTorque;
     public float maxBrakeTorque;
     public float maxSteeringAngle;
-    public GEARBOX gearBox;
+    public GEARTYPE gearBox;
     public float creepingGas;
 
     private float inputGas;
     private float inputBrake;
     private float inputSteer;
 
-    public void setGear(GEARBOX gear) {
+    [SerializeField]
+    public int maxRightAngle;
+    [SerializeField]
+    public int maxLeftAngle;
+    [SerializeField]
+    public float lookSpeed;
+
+    [SerializeField]
+    public LOOKDIR lookAt;
+
+    public void setGear(GEARTYPE gear) {
         this.gearBox = gear;
     }
 
@@ -40,11 +50,11 @@ public class CarController : MonoBehaviour
         // playerCar.GetComponent<CarController>().setGear(gear);
     }
 
-    private GEARBOX champGear(int gear) {
+    private GEARTYPE champGear(int gear) {
         int thisGear = gear;
-        if (thisGear < (int)GEARBOX.PARK)  thisGear = (int)GEARBOX.PARK; 
-        if (thisGear > (int)GEARBOX.DRIVE) thisGear = (int)GEARBOX.DRIVE;
-        return (GEARBOX)thisGear;
+        if (thisGear < (int)GEARTYPE.PARK)  thisGear = (int)GEARTYPE.PARK; 
+        if (thisGear > (int)GEARTYPE.DRIVE) thisGear = (int)GEARTYPE.DRIVE;
+        return (GEARTYPE)thisGear;
     }
 
     public void gasBrake(float inputVertical) {
@@ -58,9 +68,13 @@ public class CarController : MonoBehaviour
         inputSteer = inputHorizontal;
     }
 
+    public void look(LOOKDIR dir) {
+        lookAt = dir;
+    }
+
     // finds the corresponding visual wheel
     // correctly applies the transform
-    public void ApplyLocalPositionToVisuals(WheelCollider collider)
+    public void applyLocalPositionToVisuals(WheelCollider collider)
     {
         if (collider.transform.childCount == 0) {
             return;
@@ -76,6 +90,26 @@ public class CarController : MonoBehaviour
         visualWheel.transform.rotation = rotation;
     }
 
+    public void applyLookToVisual() {
+        Transform viewPoint = this.transform.Find("First Person View Point");
+
+        if (lookAt == LOOKDIR.LEFT) {
+            Quaternion carQuaterion = transform.rotation;
+            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(maxLeftAngle, transform.up);
+
+            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);
+        } else if (lookAt == LOOKDIR.CENTER) {
+            Quaternion carQuaterion = transform.rotation;
+            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(0, transform.up);
+
+            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);  
+        } else if (lookAt == LOOKDIR.RIGHT) {
+            Quaternion carQuaterion = transform.rotation;
+            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(maxRightAngle, transform.up);
+
+            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);
+        } 
+    }
 
     public void FixedUpdate()
     {         
@@ -84,7 +118,7 @@ public class CarController : MonoBehaviour
         float steering = inputSteer * maxSteeringAngle;
         int gear = (int)gearBox;
 
-        if (gearBox == GEARBOX.PARK) {
+        if (gearBox == GEARTYPE.PARK) {
             motorGas = 0;
             motorBrake = maxBrakeTorque;
         } else {
@@ -111,8 +145,11 @@ public class CarController : MonoBehaviour
                 axleInfo.rightWheel.brakeTorque = motorBrake;
             }
 
-            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            applyLocalPositionToVisuals(axleInfo.leftWheel);
+            applyLocalPositionToVisuals(axleInfo.rightWheel);
         }
+
+        //Look
+        applyLookToVisual();
     }    
 }

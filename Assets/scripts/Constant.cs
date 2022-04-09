@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace BasicCarParking {
-    public enum GEARBOX {
+    public enum GEARTYPE {
         PARK = -2,
         REVERSE = -1,
         NEUTRAL = 0,
@@ -17,5 +17,11 @@ namespace BasicCarParking {
         FIRST_PERSON_VIEW = 0,
         TOP_DOWN_VIEW = 1,
         THIRD_PERSON_VIEW = 2
+    }
+
+    public enum LOOKDIR {
+        LEFT = -1,
+        CENTER = 0,
+        RIGHT = 1
     }
 }
