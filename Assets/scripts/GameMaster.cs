@@ -35,23 +35,23 @@ public class GameMaster : MonoBehaviour
     }
 
     private void Update() {
-        float inputHorizontal = Input.GetAxis("Horizontal");
-        float inputVertical = Input.GetAxis("Vertical");
+        float inputHorizontal = SimpleInput.GetAxis("Horizontal");
+        float inputVertical = SimpleInput.GetAxis("Vertical");
 
         player.GetComponent<CarController>().gasBrake(inputVertical);
         player.GetComponent<CarController>().steer(inputHorizontal);
 
-        if (Input.GetButton("Look Left")){
+        if (SimpleInput.GetButton("Look Left")){
             look(LOOKDIR.LEFT);
-        } else if (Input.GetButton("Look Right")){
+        } else if (SimpleInput.GetButton("Look Right")){
             look(LOOKDIR.RIGHT);
         } else {
             look(LOOKDIR.CENTER);
         }
 
-        if (Input.GetButtonDown("Gear Up")) {
+        if (SimpleInput.GetButtonDown("Gear Up")) {
             changeGear(GEARDIR.UP);
-        } else if (Input.GetButtonDown("Gear Down")) {
+        } else if (SimpleInput.GetButtonDown("Gear Down")) {
             changeGear(GEARDIR.DOWN);
         }
     }
