@@ -3,20 +3,17 @@ using BasicCarParking;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject gm; 
+    public Transform target { get; set; }
 
-    private Transform target;
-
-    public float smoothSpeed = 0.20f;
-
-    [Header("Third Person View Offset")]
-    public Vector3 thirdPersonOffset;
+    public float smoothSpeed = 0.9f;
+    public float lookSpeed = 0.2f;
 
     public VIEWTYPE viewType = VIEWTYPE.THIRD_PERSON_VIEW;
 
-    private void Start() {
-        target = gm.GetComponent<GameMaster>().player.transform;
-    }
+    [SerializeField]
+    public GameObject carMirrorsUI;
+
+
 
     private void firstPersonView() {
         Transform viewPoint = target.Find("First Person View Point");
@@ -30,7 +27,8 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void topDownView() {
-        Vector3 desiredPosition = target.Find("Top Down View Point").position;
+        Vector3 topDownOffset = target.GetComponent<CarController>().topDownOffset;
+        Vector3 desiredPosition = target.position + topDownOffset;
         Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
         this.transform.position = smoothPosition;
 
@@ -38,6 +36,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void thirdPersonView() {
+        Vector3 thirdPersonOffset = target.GetComponent<CarController>().thirdPersonOffset;
         Vector3 desiredPosition = target.position + thirdPersonOffset;
         Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
         this.transform.position = smoothPosition;
@@ -47,20 +46,47 @@ public class CameraFollow : MonoBehaviour
 
     public void changeView(VIEWTYPE view) {
         this.viewType = view;
+
+        if (view == VIEWTYPE.FIRST_PERSON_VIEW) {
+            carMirrorsUI.SetActive(true);
+        } else {
+            carMirrorsUI.SetActive(false);
+        }
     }
 
-    private void transitViewPoint(Vector3 desiredPosition){
-        Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
-        this.transform.position = smoothPosition;
+    public void applyLookToVisual() {
+        Transform viewPoint = this.target.Find("First Person View Point");
 
-        this.transform.LookAt(target);
+        CarController carCtrl = this.target.GetComponent<CarController>();
+        float maxLeftAngle = carCtrl.maxLeftAngle;
+        float maxRightAngle = carCtrl.maxRightAngle;
+        LOOKDIR lookAt = carCtrl.lookAt;
+
+        if (lookAt == LOOKDIR.LEFT) {
+            Quaternion carQuaterion = this.target.rotation;
+            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(maxLeftAngle, transform.up);
+
+            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);
+        } else if (lookAt == LOOKDIR.CENTER) {
+            Quaternion carQuaterion = this.target.rotation;
+            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(0, transform.up);
+
+            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);  
+        } else if (lookAt == LOOKDIR.RIGHT) {
+            Quaternion carQuaterion = this.target.rotation;
+            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(maxRightAngle, transform.up);
+
+            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);
+        } 
     }
+
 
     // Update is called once per frame
     private void FixedUpdate() {
         switch (viewType) {
             case VIEWTYPE.FIRST_PERSON_VIEW:
                 firstPersonView();
+                applyLookToVisual();
                 break;
             case VIEWTYPE.TOP_DOWN_VIEW:
                 topDownView();
@@ -72,6 +98,5 @@ public class CameraFollow : MonoBehaviour
                 thirdPersonView();
                 break;
         }
-
     }
 }

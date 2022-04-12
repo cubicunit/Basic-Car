@@ -12,6 +12,10 @@ public class GameMaster : MonoBehaviour
     [SerializeField]
     public GearShifter gearStepper;
 
+    private void Start() {
+        mainCamera.GetComponent<CameraFollow>().target = player.transform;
+    }
+
     public void changeView() {
         VIEWTYPE viewType = mainCamera.GetComponent<CameraFollow>().viewType;
 
@@ -40,6 +44,10 @@ public class GameMaster : MonoBehaviour
 
         player.GetComponent<CarController>().gasBrake(inputVertical);
         player.GetComponent<CarController>().steer(inputHorizontal);
+
+        if (SimpleInput.GetButtonDown("Change View")) {
+            changeView();
+        }
 
         if (SimpleInput.GetButton("Look Left")){
             look(LOOKDIR.LEFT);

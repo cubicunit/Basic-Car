@@ -12,26 +12,36 @@ public class AxleInfo {
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField]
     public List<AxleInfo> axleInfos; 
+    [SerializeField]
     public float maxMotorTorque;
+    [SerializeField]
     public float maxBrakeTorque;
+    [SerializeField]
     public float maxSteeringAngle;
+    [SerializeField]
     public GEARTYPE gearBox;
+    [SerializeField]
     public float creepingGas;
 
     private float inputGas;
     private float inputBrake;
     private float inputSteer;
 
-    [SerializeField]
+    [Space(10)]
+    [SerializeField, Range(0,60)]
     public int maxRightAngle;
-    [SerializeField]
+    [SerializeField, Range(-60,0)]
     public int maxLeftAngle;
     [SerializeField]
     public float lookSpeed;
-
     [SerializeField]
     public LOOKDIR lookAt;
+
+    [Space(10)]
+    public Vector3 topDownOffset;
+    public Vector3 thirdPersonOffset;
 
     public void setGear(GEARTYPE gear) {
         this.gearBox = gear;
@@ -47,7 +57,6 @@ public class CarController : MonoBehaviour
         }
 
         this.gearBox = champGear(thisGear);
-        // playerCar.GetComponent<CarController>().setGear(gear);
     }
 
     private GEARTYPE champGear(int gear) {
@@ -149,7 +158,5 @@ public class CarController : MonoBehaviour
             applyLocalPositionToVisuals(axleInfo.rightWheel);
         }
 
-        //Look
-        applyLookToVisual();
     }    
 }
