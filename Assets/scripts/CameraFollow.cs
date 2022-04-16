@@ -13,7 +13,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     public GameObject carMirrorsUI;
 
-
+    private void Start() {
+        carMirrorsUI.SetActive(viewType == VIEWTYPE.FIRST_PERSON_VIEW);
+    }
 
     private void firstPersonView() {
         Transform viewPoint = target.Find("First Person View Point");
@@ -37,7 +39,7 @@ public class CameraFollow : MonoBehaviour
 
     private void thirdPersonView() {
         Vector3 thirdPersonOffset = target.GetComponent<CarController>().thirdPersonOffset;
-        Vector3 desiredPosition = target.position + thirdPersonOffset;
+        Vector3 desiredPosition = target.forward*thirdPersonOffset.z+target.position+new Vector3(0,thirdPersonOffset.y,0);
         Vector3 smoothPosition = Vector3.Lerp(this.transform.position, desiredPosition, smoothSpeed);
         this.transform.position = smoothPosition;
 

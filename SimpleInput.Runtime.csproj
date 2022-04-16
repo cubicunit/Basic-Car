@@ -36,35 +36,35 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/UnityInputProvider.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/KeyInputs/KeyInputUI.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputSwipeGesture.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/ButtonInputs/ButtonInputSwipeGesture.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/SwipeGestureBase.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/BaseInput.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/MouseButtonInputs/MouseButtonInputSwipeGesture.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/SimpleInputUtils.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputRotateGesture.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Example/ExamplePlayerController.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/KeyInputs/KeyInputSwipeGesture.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Scripts/ButtonInputs/ButtonInputKeyboard.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputUI.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputPinchGesture.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/SimpleInputDragListener.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/UnityInputProvider.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/ISimpleInputDraggable.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/KeyInputs/KeyInputUI.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputSwipeGesture.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/SimpleInput.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/Dpad.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/ButtonInputs/ButtonInputSwipeGesture.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/ISimpleInputDraggableMultiTouch.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/SwipeGestureBase.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/KeyInputs/KeyInputKeyboard.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/NonDrawingGraphic.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/SteeringWheel.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputMoveGesture.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/Touchpad.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/BaseInput.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/MouseButtonInputs/MouseButtonInputSwipeGesture.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/SimpleInputUtils.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputKeyboard.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/SelectivePointerInput.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputRotateGesture.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Example/ExamplePlayerController.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/KeyInputs/KeyInputSwipeGesture.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/MouseButtonInputs/MouseButtonInputKeyboard.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/ButtonInputs/ButtonInputUI.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/MouseButtonInputs/MouseButtonInputUI.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Scripts/ButtonInputs/ButtonInputKeyboard.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/Joystick.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputMouse.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Scripts/Core/SimpleInputMultiDragListener.cs" />
@@ -315,6 +315,9 @@
     </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/PackageCache/com.unity.render-pipelines.core@10.8.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.33f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

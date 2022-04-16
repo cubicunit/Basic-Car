@@ -37,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Plugins/SimpleInput/Editor/MouseButtonInputDrawer.cs" />
+     <Compile Include="Assets/Plugins/SimpleInput/Editor/KeyInputDrawer.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Editor/BaseInputDrawer.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Editor/ButtonInputDrawer.cs" />
      <Compile Include="Assets/Plugins/SimpleInput/Editor/AxisInputDrawer.cs" />
-     <Compile Include="Assets/Plugins/SimpleInput/Editor/KeyInputDrawer.cs" />
      <None Include="Assets/Plugins/SimpleInput/Editor/SimpleInput.Editor.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -284,6 +284,9 @@
     </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/PackageCache/com.unity.render-pipelines.core@10.8.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>

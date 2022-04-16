@@ -24,4 +24,21 @@ namespace BasicCarParking {
         CENTER = 0,
         RIGHT = 1
     }
+
+    public sealed class GameData {
+        private static GameData instance = null;  
+        private GameData() {}  
+
+        public int level = 1;
+        public static GameData Instance {  
+            get {  
+                if (instance == null) {  
+                    instance = new GameData();  
+                }  
+                return instance;  
+            }  
+        } 
+
+        private int test {get; set;}
+    }
 }

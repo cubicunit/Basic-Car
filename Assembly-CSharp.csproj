@@ -36,14 +36,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/Constant.cs" />
-     <Compile Include="Assets/Scripts/CameraFollow.cs" />
      <Compile Include="Assets/Scripts/CarController.cs" />
-     <Compile Include="Assets/UI/Scripts/Draggable.cs" />
-     <Compile Include="Assets/UI/Scripts/DialogUI.cs" />
+     <Compile Include="Assets/UI/Scripts/GearShifter.cs" />
      <Compile Include="Assets/Scripts/ParkTrigger.cs" />
      <Compile Include="Assets/Scripts/GameMaster.cs" />
-     <Compile Include="Assets/UI/Scripts/GearShifter.cs" />
+     <Compile Include="Assets/Scripts/Constant.cs" />
+     <Compile Include="Assets/Scripts/CameraFollow.cs" />
+     <Compile Include="Assets/UI/Scripts/Draggable.cs" />
+     <Compile Include="Assets/UI/Scripts/DialogUI.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -620,8 +620,11 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -632,14 +635,17 @@
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
@@ -656,14 +662,44 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids.Editor">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mathematics">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids">
         <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+        <HintPath>/Users/Raymond/projects/game development/Basic Car/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

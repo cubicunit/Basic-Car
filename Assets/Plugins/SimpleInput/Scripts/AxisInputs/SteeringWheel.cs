@@ -27,6 +27,8 @@ namespace SimpleInputNamespace
 
 		public float Angle { get { return wheelAngle; } }
 
+        public bool locked = false;
+
 		private void Awake()
 		{
 			wheel = GetComponent<Graphic>();
@@ -56,7 +58,7 @@ namespace SimpleInputNamespace
 		{
 			// If the wheel is released, reset the rotation
 			// to initial (zero) rotation by wheelReleasedSpeed degrees per second
-			if( !wheelBeingHeld && wheelAngle != 0f )
+			if( !wheelBeingHeld && wheelAngle != 0f && !locked)
 			{
 				float deltaAngle = wheelReleasedSpeed * Time.deltaTime;
 				if( Mathf.Abs( deltaAngle ) > Mathf.Abs( wheelAngle ) )

@@ -43,6 +43,33 @@ public class CarController : MonoBehaviour
     public Vector3 topDownOffset;
     public Vector3 thirdPersonOffset;
 
+    private void OnCollisionEnter(Collision other) {
+        if (!other.collider.isTrigger) { 
+            Debug.Log("Car Hit. End Game");
+        }
+    }
+
+    public bool isStop() {
+        float fl = Mathf.Abs(this.transform.Find("wheels/frontLeft").GetComponent<WheelCollider>().rpm);
+        float fr = Mathf.Abs(this.transform.Find("wheels/frontRight").GetComponent<WheelCollider>().rpm);
+        float rl = Mathf.Abs(this.transform.Find("wheels/rearLeft").GetComponent<WheelCollider>().rpm);
+        float rr = Mathf.Abs(this.transform.Find("wheels/rearLeft").GetComponent<WheelCollider>().rpm);
+
+        if (fl < 0.03 && fr < 0.03 && rl < 0.03 && rr < 0.03) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void takeControl(bool flag) {
+        if (flag) {
+            this.transform.Find("Mirror Cameras").gameObject.SetActive(true);
+        } else {
+            this.transform.Find("Mirror Cameras").gameObject.SetActive(false);
+        }
+    }
+
     public void setGear(GEARTYPE gear) {
         this.gearBox = gear;
     }
