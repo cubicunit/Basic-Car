@@ -1,7 +1,7 @@
 using UnityEngine;
 using BasicCarParking;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
 public class GameMaster : MonoBehaviour
 {
     [SerializeField]
@@ -26,6 +26,19 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField]
     public Transform steeringWheel;
+
+    public Animator transition;
+
+    public float transitionTime = 1.0f;
+
+    // Update is called once per frame
+    IEnumerator LoadLevel(int levelIndex) {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
+    }
 
     private void Start() {
         mainCamera.GetComponent<CameraFollow>().target = player.transform;
@@ -83,7 +96,9 @@ public class GameMaster : MonoBehaviour
     }
 
     public void levelFinish() {
-        SceneManager.LoadScene("Level2");
+        Debug.Log("Level Finished");
+        int nextIndex = SceneManager.GetActiveScene().buildIndex+1;
+        StartCoroutine(LoadLevel(1));
     }
 
     private void Update() {
