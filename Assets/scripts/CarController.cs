@@ -13,6 +13,10 @@ public class AxleInfo {
 public class CarController : MonoBehaviour
 {
     [SerializeField]
+    public Transform mirrorCameras;
+
+    [Space(10)]
+    [SerializeField]
     public List<AxleInfo> axleInfos; 
     [SerializeField]
     public float maxMotorTorque;
@@ -49,11 +53,11 @@ public class CarController : MonoBehaviour
         }
     }
 
-    public bool isStop() {
-        float fl = Mathf.Abs(this.transform.Find("wheels/frontLeft").GetComponent<WheelCollider>().rpm);
-        float fr = Mathf.Abs(this.transform.Find("wheels/frontRight").GetComponent<WheelCollider>().rpm);
-        float rl = Mathf.Abs(this.transform.Find("wheels/rearLeft").GetComponent<WheelCollider>().rpm);
-        float rr = Mathf.Abs(this.transform.Find("wheels/rearLeft").GetComponent<WheelCollider>().rpm);
+    public bool isStop() {        
+        float fl = Mathf.Abs(axleInfos[0].leftWheel.GetComponent<WheelCollider>().rpm);
+        float fr = Mathf.Abs(axleInfos[0].rightWheel.GetComponent<WheelCollider>().rpm);
+        float rl = Mathf.Abs(axleInfos[1].leftWheel.GetComponent<WheelCollider>().rpm);
+        float rr = Mathf.Abs(axleInfos[1].rightWheel.GetComponent<WheelCollider>().rpm);
 
         if (fl < 0.03 && fr < 0.03 && rl < 0.03 && rr < 0.03) {
             return true;
@@ -63,10 +67,11 @@ public class CarController : MonoBehaviour
     }
 
     public void takeControl(bool flag) {
+        setGear(GEARTYPE.PARK);
         if (flag) {
-            this.transform.Find("Mirror Cameras").gameObject.SetActive(true);
+            mirrorCameras.gameObject.SetActive(true);
         } else {
-            this.transform.Find("Mirror Cameras").gameObject.SetActive(false);
+            mirrorCameras.gameObject.SetActive(false);
         }
     }
 

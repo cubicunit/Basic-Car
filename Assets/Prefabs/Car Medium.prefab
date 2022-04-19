@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8cc469ef8df45a4a3a09c7f2fcb80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mirrorCameras: {fileID: 5342037288756799018}
   axleInfos:
   - leftWheel: {fileID: 4486739199168910326}
     rightWheel: {fileID: 4486739199659808675}
@@ -486,7 +487,7 @@ MonoBehaviour:
   maxMotorTorque: 300
   maxBrakeTorque: 900
   maxSteeringAngle: 30
-  gearBox: -2
+  gearBox: -1
   creepingGas: 0.1
   maxRightAngle: 60
   maxLeftAngle: -60
@@ -643,7 +644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4486739199733321313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.682, z: -0.423}
+  m_LocalPosition: {x: 0, y: 1.636, z: -0.309}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3740737420478078380}
@@ -661,8 +662,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9339623, g: 0.87422377, b: 0.5506853, a: 1}
-  m_Intensity: 0.24
-  m_Range: 1.77
+  m_Intensity: 1
+  m_Range: 1.34
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -700,7 +701,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
