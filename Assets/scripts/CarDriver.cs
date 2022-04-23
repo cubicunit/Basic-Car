@@ -14,6 +14,14 @@ public class CarDriver : MonoBehaviour
     [SerializeField]
     public Transform steeringWheel;
 
+    [SerializeField]
+    public MainCamCtrl mainCamCtrl;
+
+    public void pauseCar() {
+        gearShifter.GetComponent<GearShifter>().setGear(GEARTYPE.PARK);
+        targetCar.GetComponent<CarController>().setGear(GEARTYPE.PARK);
+    }
+
     public void changeCar(GameObject newCar) {
         gearShifter.GetComponent<GearShifter>().setGear(GEARTYPE.PARK);
 
@@ -41,20 +49,13 @@ public class CarDriver : MonoBehaviour
 
         //Control Car
         steeringWheel.GetComponent<SteeringWheel>().locked = ctrl.isStop();
-        if (SimpleInput.GetButton("Look Left")){
-            ctrl.look(LOOKDIR.LEFT);
-        } else if (SimpleInput.GetButton("Look Right")){
-            ctrl.look(LOOKDIR.RIGHT);
-        } else {
-            ctrl.look(LOOKDIR.CENTER);
-        }
 
-        if (SimpleInput.GetButtonDown("Gear Up")) {
-            ctrl.changeGear(GEARDIR.UP);
-            shifter.changeGear(GEARDIR.UP);
-        } else if (SimpleInput.GetButtonDown("Gear Down")) {
-            ctrl.changeGear(GEARDIR.DOWN);
-            shifter.changeGear(GEARDIR.DOWN);
+        if (SimpleInput.GetButton("Look Left")){
+            mainCamCtrl.look(LOOKDIR.LEFT);
+        } else if (SimpleInput.GetButton("Look Right")){
+            mainCamCtrl.look(LOOKDIR.RIGHT);
+        } else if (SimpleInput.GetButton("Look Center")){
+            mainCamCtrl.look(LOOKDIR.CENTER);
         }
 
         float inputHorizontal = SimpleInput.GetAxis("Horizontal");

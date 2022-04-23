@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class ParkTrigger : MonoBehaviour
 {
-    [SerializeField]
-    public Transform targetCar;
+    [SerializeField] public Transform targetCar;
 
-    [SerializeField]
-    public bool withDir = false;
+    [SerializeField] public bool withDir = false;
 
     public bool isTargetCarParked() {
         if (targetCar.GetComponent<CarController>().gearBox != BasicCarParking.GEARTYPE.PARK) {
@@ -33,6 +31,7 @@ public class ParkTrigger : MonoBehaviour
                 return false;
             }            
         } else {
+            Debug.Log("Hihi");
             if ((frontTrigger.Contains(fl) || rearTrigger.Contains(fl))
                 && (frontTrigger.Contains(fr) || rearTrigger.Contains(fr))
                 && (frontTrigger.Contains(rl) || rearTrigger.Contains(rl))
@@ -43,14 +42,4 @@ public class ParkTrigger : MonoBehaviour
             }
         }
     }
-
-    void OnShowMessageDialog() {
-        Debug.Log("On Message Dialog");
-        // ConfirmDialogUI.Instance
-        //     .SetTitle ( "Message" )
-        //     .SetMessage( "Car Enter Car Park" )
-        //     .SetButtonsColor( DialogButtonColor.Magenta )
-        //     .SetFadeDuration ( .4f )
-        //     .Show();
-    } 
 }

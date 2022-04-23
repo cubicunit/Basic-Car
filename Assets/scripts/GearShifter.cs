@@ -37,6 +37,11 @@ public class GearShifter : MonoBehaviour
         }
     }
 
+    public void pakeCar(){
+        gear = GEARTYPE.PARK;
+        m_onGearChanged.Invoke(gear);
+    }
+
     public void setGear(GEARTYPE newGear) {
         gear = newGear;
     }
@@ -61,6 +66,14 @@ public class GearShifter : MonoBehaviour
     }
 
     private void Update() {
+        if (SimpleInput.GetButtonDown("Gear Up")) {
+            changeGear(GEARDIR.UP);
+             m_onGearChanged.Invoke(gear);
+        } else if (SimpleInput.GetButtonDown("Gear Down")) {
+            changeGear(GEARDIR.DOWN);
+             m_onGearChanged.Invoke(gear);
+        }
+
         switch (gear) {
             case GEARTYPE.PARK:
                 slider.value = 1;

@@ -1,6 +1,16 @@
 using UnityEngine;
 
 namespace BasicCarParking {
+    public enum GAMESTATE {
+        PAUSE,
+        START
+    }
+
+    public enum CAMERAMODE {
+        PLAY,
+        SPECTATE
+    }
+
     public enum GEARTYPE {
         PARK = -2,
         REVERSE = -1,

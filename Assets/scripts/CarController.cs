@@ -12,36 +12,23 @@ public class AxleInfo {
 
 public class CarController : MonoBehaviour
 {
-    [SerializeField]
-    public Transform mirrorCameras;
-
-    [Space(10)]
-    [SerializeField]
-    public List<AxleInfo> axleInfos; 
-    [SerializeField]
-    public float maxMotorTorque;
-    [SerializeField]
-    public float maxBrakeTorque;
-    [SerializeField]
-    public float maxSteeringAngle;
-    [SerializeField]
-    public GEARTYPE gearBox;
-    [SerializeField]
-    public float creepingGas;
-
     private float inputGas;
     private float inputBrake;
     private float inputSteer;
 
     [Space(10)]
-    [SerializeField, Range(0,60)]
-    public int maxRightAngle;
-    [SerializeField, Range(-60,0)]
-    public int maxLeftAngle;
-    [SerializeField]
-    public float lookSpeed;
-    [SerializeField]
-    public LOOKDIR lookAt;
+    [SerializeField] public List<AxleInfo> axleInfos; 
+    [SerializeField] public float maxMotorTorque;
+    [SerializeField] public float maxBrakeTorque;
+    [SerializeField] public float maxSteeringAngle;
+    [SerializeField] public GEARTYPE gearBox;
+    [SerializeField] public float creepingGas;
+
+    [Space(10)]
+    [SerializeField, Range(0,60)]  public int maxLookRight;
+    [SerializeField, Range(-60,0)] public int maxLookLeft;
+    [SerializeField] public float lookSpeed;
+    [SerializeField] public LOOKDIR lookAt;
 
     [Space(10)]
     public Vector3 topDownOffset;
@@ -50,6 +37,7 @@ public class CarController : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if (!other.collider.isTrigger) { 
             Debug.Log("Car Hit. End Game");
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().failStage();
         }
     }
 
@@ -68,11 +56,6 @@ public class CarController : MonoBehaviour
 
     public void takeControl(bool flag) {
         setGear(GEARTYPE.PARK);
-        if (flag) {
-            mirrorCameras.gameObject.SetActive(true);
-        } else {
-            mirrorCameras.gameObject.SetActive(false);
-        }
     }
 
     public void setGear(GEARTYPE gear) {
@@ -129,27 +112,6 @@ public class CarController : MonoBehaviour
      
         visualWheel.transform.position = position;
         visualWheel.transform.rotation = rotation;
-    }
-
-    public void applyLookToVisual() {
-        Transform viewPoint = this.transform.Find("First Person View Point");
-
-        if (lookAt == LOOKDIR.LEFT) {
-            Quaternion carQuaterion = transform.rotation;
-            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(maxLeftAngle, transform.up);
-
-            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);
-        } else if (lookAt == LOOKDIR.CENTER) {
-            Quaternion carQuaterion = transform.rotation;
-            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(0, transform.up);
-
-            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);  
-        } else if (lookAt == LOOKDIR.RIGHT) {
-            Quaternion carQuaterion = transform.rotation;
-            Quaternion desiredQuaterion = carQuaterion * Quaternion.AngleAxis(maxRightAngle, transform.up);
-
-            viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);
-        } 
     }
 
     public void FixedUpdate()
