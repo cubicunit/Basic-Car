@@ -47,9 +47,9 @@ public class CarController : MonoBehaviour
         float rl = Mathf.Abs(axleInfos[1].leftWheel.GetComponent<WheelCollider>().rpm);
         float rr = Mathf.Abs(axleInfos[1].rightWheel.GetComponent<WheelCollider>().rpm);
 
-        if (fl < 0.03 && fr < 0.03 && rl < 0.03 && rr < 0.03) {
+        if (fl < 0.1 && fr < 0.1 && rl < 0.1 && rr < 0.1) {
             return true;
-        } else {
+        } else {              
             return false;
         }
     }

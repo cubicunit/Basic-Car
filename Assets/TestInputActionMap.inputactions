@@ -1,0 +1,54 @@
+{
+    "name": "TestInputActionMap",
+    "maps": [
+        {
+            "name": "Test",
+            "id": "004dfa36-5890-44e7-bc98-5adc9da4b1b2",
+            "actions": [
+                {
+                    "name": "Test View Button",
+                    "type": "Button",
+                    "id": "54673d9f-9393-4e71-833b-2f0fac9dd13d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "88c943f1-d319-49f2-829e-ee24a9f272ed",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be21c039-6594-40ce-9477-04c8c8e4a039",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Test View Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f3970e3-34ff-4773-bb78-f92492a66093",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

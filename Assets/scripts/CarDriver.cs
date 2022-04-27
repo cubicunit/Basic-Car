@@ -42,6 +42,13 @@ public class CarDriver : MonoBehaviour
         shifter.setGear(gear);
     }
 
+    public void gasAndBrake(InputAction.CallbackContext context) {
+        CarController ctrl = targetCar.GetComponent<CarController>();
+
+        float vertical = context.ReadValue<float>();
+        ctrl.gasBrake(vertical);
+    }
+
     // Update is called once per frame
     private void Update() {
         CarController ctrl = targetCar.GetComponent<CarController>();
@@ -59,8 +66,6 @@ public class CarDriver : MonoBehaviour
         }
 
         float inputHorizontal = SimpleInput.GetAxis("Horizontal");
-        float inputVertical = SimpleInput.GetAxis("Vertical");
-        ctrl.gasBrake(inputVertical);
         ctrl.steer(inputHorizontal);
     }
 }

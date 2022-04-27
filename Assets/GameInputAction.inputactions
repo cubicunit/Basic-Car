@@ -6,15 +6,6 @@
             "id": "4181c05d-90eb-4737-b06e-6999632b37cc",
             "actions": [
                 {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "e557a924-5afc-4a14-a55c-4c3e8cdbace2",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Select Car",
                     "type": "Button",
                     "id": "532d3f32-7473-4a67-a249-04392318f690",
@@ -24,60 +15,25 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Pan Camera",
-                    "type": "PassThrough",
-                    "id": "3cb09cc0-3405-43d2-8b6c-887fc46edb5b",
-                    "expectedControlType": "Vector2",
+                    "name": "Change View",
+                    "type": "Button",
+                    "id": "df3f9f03-c429-44ac-b2a7-73c07d15033b",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Gas Brake",
+                    "type": "Value",
+                    "id": "4728e0c0-4641-4402-aa46-e694439c0778",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
-                    "path": "<Joystick>/{Hatswitch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d6c91dfc-3b2f-44fa-a0d3-652eef69e62f",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
@@ -102,58 +58,80 @@
                 },
                 {
                     "name": "",
-                    "id": "f11bba4f-477d-42da-ad05-fd734572fc06",
-                    "path": "",
+                    "id": "5de3b86a-8538-4084-9385-1a7f549a9e84",
+                    "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Select Car",
+                    "groups": "Keyboard&Mouse;Touch",
+                    "action": "Change View",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "One Modifier",
-                    "id": "661172e4-f62d-4710-aa45-9ff5e4602395",
-                    "path": "OneModifier",
+                    "name": "SW",
+                    "id": "9f6f3ec7-6b87-4999-b212-df7ea6f1c592",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pan Camera",
+                    "action": "Gas Brake",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
-                    "id": "e0aeba1b-3b92-44b5-ad41-1bc89ea6082f",
-                    "path": "<Keyboard>/alt",
+                    "name": "negative",
+                    "id": "afe936c6-2a6f-46a8-bda7-f869607a5b0c",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pan Camera",
+                    "action": "Gas Brake",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "binding",
-                    "id": "3f69705f-df39-4cfa-8681-f9c497f7d99d",
-                    "path": "<Mouse>/delta",
+                    "name": "positive",
+                    "id": "e5dd12d8-587e-47fd-bf0d-643006277b1a",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pan Camera",
+                    "action": "Gas Brake",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "2a4f00d3-b73a-46e5-80a4-fab531ebc0ec",
-                    "path": "<Touchscreen>/delta",
+                    "name": "Up Down",
+                    "id": "77d6616f-1f39-4473-bb7c-d88de900e2cb",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touch",
-                    "action": "Pan Camera",
-                    "isComposite": false,
+                    "groups": "",
+                    "action": "Gas Brake",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "a7e32532-619f-44f5-9d24-a7778b97c706",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gas Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "8fd0aa27-c099-42d3-902f-83e931215262",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Touch",
+                    "action": "Gas Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

@@ -1,7 +1,5 @@
 using UnityEngine;
 using BasicCarParking;
-using UnityEngine.SceneManagement;
-using System.Collections;
 
 // [ExecuteAlways]
 public class GameMaster : MonoBehaviour
@@ -39,36 +37,15 @@ public class GameMaster : MonoBehaviour
     }
 
     public void failStage() { 
-        Time.timeScale = 0;
+        pause();
         failStageUI.gameObject.SetActive(true);
     }
 
     private void Awake() {
-        camManager = GetComponent<CamManager>();
-        carDriver  = this.transform.Find("CarDriver").GetComponent<CarDriver>();
+        camManager = GameObject.Find("CameraManager").GetComponent<CamManager>();
+        carDriver  = GameObject.Find("CarDriver").GetComponent<CarDriver>();
 
         setTargetCar(carDriver.targetCar);
-    }
-
-    // Update is called once per frame
-    IEnumerator loadLevel(int levelIndex) {
-        transition.SetTrigger("Start");
-
-        yield return new WaitForSeconds(transitionTime);
-
-        SceneManager.LoadScene(levelIndex);
-    }
-
-    public void levelFinish() {
-        Debug.Log("Level Finished");
-        int nextIndex = SceneManager.GetActiveScene().buildIndex+1;
-        StartCoroutine(loadLevel(nextIndex));
-    }
-
-    public void reloadLevel() {
-        Time.timeScale = 1;
-        int thisIndex = SceneManager.GetActiveScene().buildIndex;
-        StartCoroutine(loadLevel(thisIndex));
     }
 
     public void setTargetCar(GameObject nextCar) {

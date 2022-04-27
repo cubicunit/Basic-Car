@@ -39,7 +39,9 @@
      <Compile Include="Assets/Scripts/StartUICtrl.cs" />
      <Compile Include="Assets/Scripts/CarController.cs" />
      <Compile Include="Assets/Scripts/GearShifter.cs" />
+     <Compile Include="Assets/Scripts/SettingsCtrl.cs" />
      <Compile Include="Assets/Scripts/SelectionManager.cs" />
+     <Compile Include="Assets/Scripts/StagePassCtrl.cs" />
      <Compile Include="Assets/Scripts/TouchScreenPanel.cs" />
      <Compile Include="Assets/Scripts/MainCamCtrl.cs" />
      <Compile Include="Assets/Scripts/CamManager.cs" />
@@ -49,8 +51,8 @@
      <Compile Include="Assets/Scripts/ParkTrigger.cs" />
      <Compile Include="Assets/backup/UI/Scripts/Draggable.cs" />
      <Compile Include="Assets/backup/UI/Scripts/DialogUI.cs" />
-     <Compile Include="Assets/Scripts/StagePassCtrl.cs" />
-     <Compile Include="Assets/Scripts/SettingsCtrl.cs" />
+     <Compile Include="Assets/Scripts/LevelLoader.cs" />
+     <Compile Include="Assets/TestMaster.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

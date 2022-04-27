@@ -25,21 +25,23 @@ public class MainCamCtrl : MonoBehaviour
         target.GetComponent<CarController>().look(dir);
     }
 
-    public void changeNextView() {
-        int v = (int)viewType;
-        viewType = (VIEWTYPE)((++v) % 3);
+    public void changeNextView(InputAction.CallbackContext context) {
+        if (context.started) {
+            int v = (int)viewType;
+            viewType = (VIEWTYPE)((++v) % 3);
 
-        if (viewType == VIEWTYPE.FIRST_PERSON_VIEW) {
-            //Enable Mirror UI
-            carMirrorsUI.SetActive(true);
-            inputActionAsset.FindAction("Game Control/Select Car").Disable();
-        } else {
-            //Disable Mirror 
-            carMirrorsUI.SetActive(false);
-            inputActionAsset.FindAction("Game Control/Select Car").Enable();
+            if (viewType == VIEWTYPE.FIRST_PERSON_VIEW) {
+                //Enable Mirror UI
+                carMirrorsUI.SetActive(true);
+                inputActionAsset.FindAction("Game Control/Select Car").Disable();
+            } else {
+                //Disable Mirror 
+                carMirrorsUI.SetActive(false);
+                inputActionAsset.FindAction("Game Control/Select Car").Enable();
+            }
+
+            camMode = CAMERAMODE.PLAY;
         }
-
-        camMode = CAMERAMODE.PLAY;
     }
 
     public void setCarMirrorsUI(GEARTYPE gear){
@@ -149,11 +151,11 @@ public class MainCamCtrl : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update() {
-        if (SimpleInput.GetButtonDown("Change View")) {
-            changeNextView();
-        }
-    }    
+    // private void Update() {
+    //     if (SimpleInput.GetButtonDown("Change View")) {
+    //         changeNextView();
+    //     }
+    // }    
 
     private void FixedUpdate() {
         if (camMode == CAMERAMODE.SPECTATE) return;

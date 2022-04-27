@@ -3,7 +3,11 @@ using UnityEngine.InputSystem;
 
 public class SelectionManager : MonoBehaviour
 {
-    public GameMaster gm;
+    private GameMaster gm;
+    public void Awake()
+    {
+        gm = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+    }
 
     public void selectCar(InputAction.CallbackContext context){
         if (context.started) {
