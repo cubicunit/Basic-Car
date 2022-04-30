@@ -36,10 +36,10 @@ public class CarDriver : MonoBehaviour
 
     public void setGear(GEARTYPE gear) {
         CarController ctrl = targetCar.GetComponent<CarController>();
-        GearShifter shifter = gearShifter.GetComponent<GearShifter>();
+        // GearShifter shifter = gearShifter.GetComponent<GearShifter>();
 
         ctrl.setGear(gear);
-        shifter.setGear(gear);
+        // shifter.setGear(gear);
     }
 
     public void gasAndBrake(InputAction.CallbackContext context) {

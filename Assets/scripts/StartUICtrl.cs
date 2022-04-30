@@ -6,13 +6,16 @@ public class StartUICtrl : MonoBehaviour, IPointerClickHandler
 {
     public UnityEvent OnClickEvent = new UnityEvent();
 
+    private InputManager inputManager;
+
     void Awake()
     {
-        // GameObject.Find("GameMaster").GetComponent<GameMaster>().pause();
+        inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
+        inputManager.disableGameControl();
     }
 
     public void OnPointerClick(PointerEventData eventData){
-        // GameObject.Find("GameMaster").GetComponent<GameMaster>().continueGame();
+        inputManager.enableGameControl();
         this.gameObject.SetActive(false);
         OnClickEvent.Invoke();
     }

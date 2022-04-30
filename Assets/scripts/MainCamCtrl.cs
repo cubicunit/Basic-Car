@@ -17,6 +17,8 @@ public class MainCamCtrl : MonoBehaviour
     public GameObject carMirrorsUI;
     public InputActionAsset inputActionAsset;
 
+    public GearShifter gearShifter;
+
     [Space(15)]
     [SerializeField] public Vector3 maxClamp;
     [SerializeField] public Vector3 minClamp;
@@ -56,7 +58,6 @@ public class MainCamCtrl : MonoBehaviour
 
 
     public void panCamera(Vector2 delta) {
-        
         if (viewType == VIEWTYPE.FIRST_PERSON_VIEW){
             if (delta.x > 0) {
                 this.look(LOOKDIR.RIGHT);
@@ -64,7 +65,11 @@ public class MainCamCtrl : MonoBehaviour
                 this.look(LOOKDIR.LEFT);
             }
         } else {
-            camMode = CAMERAMODE.SPECTATE;
+            if (camMode == CAMERAMODE.PLAY) {
+                gearShifter.parkCar();
+                camMode = CAMERAMODE.SPECTATE;
+            }
+   
             delta = delta * -0.01f;
             if (viewType == VIEWTYPE.TOP_DOWN_VIEW) {
                 Vector3 delta3d = new Vector3(delta.x, delta.y, 0);

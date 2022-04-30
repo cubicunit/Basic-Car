@@ -3695,6 +3695,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1566293057}
+        m_TargetAssemblyTypeName: InputManger, Assembly-CSharp
+        m_MethodName: disableGameControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1002375204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4506,6 +4518,7 @@ MonoBehaviour:
   carMirrorsUI: {fileID: 639251682}
   inputActionAsset: {fileID: -944628639613478452, guid: e526f2a4d56004ba888e143997b1dbe9,
     type: 3}
+  gearShifter: {fileID: 1504791475}
   maxClamp: {x: 20, y: 0, z: 20}
   minClamp: {x: -20, y: 0, z: -20}
 --- !u!4 &1258743046 stripped
@@ -5523,6 +5536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1566293056}
   - component: {fileID: 1566293055}
+  - component: {fileID: 1566293057}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -5644,6 +5658,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4728e0c0-4641-4402-aa46-e694439c0778
     m_ActionName: Game Control/Gas Brake[/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1504791475}
+        m_TargetAssemblyTypeName: GearShifter, Assembly-CSharp
+        m_MethodName: gearUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6ad5200c-8703-4b0d-832e-9362cf62324c
+    m_ActionName: Game Control/Gear Up[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1504791475}
+        m_TargetAssemblyTypeName: GearShifter, Assembly-CSharp
+        m_MethodName: gearDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d1616045-5a3f-433d-9ef4-a1aee7723463
+    m_ActionName: Game Control/Gear Down[/Keyboard/leftCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game Control
@@ -5663,6 +5709,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1566293057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566293054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2017793dcfd8d48e9870e56fff14ed1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAsset: {fileID: -944628639613478452, guid: e526f2a4d56004ba888e143997b1dbe9,
+    type: 3}
 --- !u!1 &1584140677
 GameObject:
   m_ObjectHideFlags: 0
@@ -5941,7 +6001,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh153160
+  m_Name: pb_Mesh20470
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6218,18 +6278,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MainCamCtrl, Assembly-CSharp
         m_MethodName: panCamera
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1504791475}
-        m_TargetAssemblyTypeName: GearShifter, Assembly-CSharp
-        m_MethodName: pakeCar
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7977,6 +8025,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
         type: 3}
+      propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
+        type: 3}
       propertyPath: OnReloadClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -7987,9 +8040,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
         type: 3}
+      propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
+        type: 3}
       propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1283777814}
+    - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
+        type: 3}
+      propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1566293057}
     - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
         type: 3}
       propertyPath: OnReloadClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -8005,6 +8068,16 @@ PrefabInstance:
       propertyPath: OnReloadClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1283777814}
+    - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
+        type: 3}
+      propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
+        type: 3}
+      propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: enableGameControl
+      objectReference: {fileID: 0}
     - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
         type: 3}
       propertyPath: OnReloadClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -8052,6 +8125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
         type: 3}
+      propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: InputManger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
+        type: 3}
       propertyPath: OnReloadClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: LevelLoader, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -8069,6 +8147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnSelectStageClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: GameMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
+        type: 3}
+      propertyPath: OnExitClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7734365285650842474, guid: 996b3f335dd144208a43ed200be275b2,
         type: 3}

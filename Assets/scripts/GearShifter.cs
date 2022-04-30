@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using BasicCarParking;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class GearShifter : MonoBehaviour
 {
@@ -32,18 +33,17 @@ public class GearShifter : MonoBehaviour
         }
 
         if (newGear != gear) {
-            gear = newGear;
-            m_onGearChanged.Invoke(gear);
+            setGear(newGear);
         }
     }
 
-    public void pakeCar(){
-        gear = GEARTYPE.PARK;
-        m_onGearChanged.Invoke(gear);
+    public void parkCar(){
+        setGear(GEARTYPE.PARK);
     }
 
     public void setGear(GEARTYPE newGear) {
         gear = newGear;
+        m_onGearChanged.Invoke(gear);
     }
 
     public void changeGear(GEARDIR dir) {
@@ -55,7 +55,7 @@ public class GearShifter : MonoBehaviour
             thisGear--;
         }
 
-        gear = champGear(thisGear);
+        setGear(champGear(thisGear));
     }
 
     private GEARTYPE champGear(int gear) {
@@ -65,15 +65,19 @@ public class GearShifter : MonoBehaviour
         return (GEARTYPE)thisGear;
     }
 
-    private void Update() {
-        if (SimpleInput.GetButtonDown("Gear Up")) {
+    public void gearUp(InputAction.CallbackContext context) {
+        if (context.started) {
             changeGear(GEARDIR.UP);
-             m_onGearChanged.Invoke(gear);
-        } else if (SimpleInput.GetButtonDown("Gear Down")) {
-            changeGear(GEARDIR.DOWN);
-             m_onGearChanged.Invoke(gear);
         }
+    }
 
+    public void gearDown(InputAction.CallbackContext context) {
+        if (context.started) {
+            changeGear(GEARDIR.DOWN);
+        }
+    }
+
+    private void Update() {
         switch (gear) {
             case GEARTYPE.PARK:
                 slider.value = 1;
