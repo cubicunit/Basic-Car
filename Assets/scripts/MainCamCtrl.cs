@@ -153,7 +153,7 @@ public class MainCamCtrl : MonoBehaviour
 
             viewPoint.rotation = Quaternion.Lerp(viewPoint.rotation, desiredQuaterion, lookSpeed);
         } 
-    }
+    } 
 
     // Update is called once per frame
     // private void Update() {
