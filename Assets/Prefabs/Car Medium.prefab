@@ -196,7 +196,7 @@ MonoBehaviour:
   maxLookLeft: -60
   lookSpeed: 0.2
   lookAt: 0
-  topDownOffset: {x: 0, y: 30, z: 0}
+  topDownOffset: {x: 0, y: 20, z: 0}
   thirdPersonOffset: {x: 0, y: 15, z: -10}
 --- !u!1 &4486739199168910324
 GameObject:

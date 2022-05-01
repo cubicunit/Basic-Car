@@ -4,9 +4,17 @@ using UnityEngine.InputSystem;
 public class SelectionManager : MonoBehaviour
 {
     private GameMaster gm;
+
+    private MainCamCtrl mainCamCtrl;
+
+    private InputManager inputManager;
+
     public void Awake()
     {
         gm = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        mainCamCtrl = GameObject.Find("Main Camera").GetComponent<MainCamCtrl>();
+        inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
+        
     }
 
     public void selectCar(InputAction.CallbackContext context){
@@ -30,6 +38,8 @@ public class SelectionManager : MonoBehaviour
                 string layerName = LayerMask.LayerToName(selection.gameObject.layer);
                 if (layerName == "Controllable") {
                     gm.setTargetCar(selection.gameObject);
+                    mainCamCtrl.changeGameMode();
+                    inputManager.enableGameControl();
                 }
             }
         }

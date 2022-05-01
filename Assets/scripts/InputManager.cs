@@ -5,6 +5,11 @@ public class InputManager : MonoBehaviour
 {
     public InputActionAsset inputAsset;
 
+    void Awake()
+    {
+        inputAsset.FindActionMap("Game Non-Play Control").Enable();
+    }
+
     public void disableGameControl() {
         inputAsset.FindActionMap("Game Control").Disable();
     }

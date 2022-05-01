@@ -6,15 +6,6 @@
             "id": "4181c05d-90eb-4737-b06e-6999632b37cc",
             "actions": [
                 {
-                    "name": "Select Car",
-                    "type": "Button",
-                    "id": "532d3f32-7473-4a67-a249-04392318f690",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Change View",
                     "type": "Button",
                     "id": "df3f9f03-c429-44ac-b2a7-73c07d15033b",
@@ -52,28 +43,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Select Car",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "886e731e-7071-4ae4-95c0-e61739dad6fd",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Select Car",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "5de3b86a-8538-4084-9385-1a7f549a9e84",
@@ -686,6 +655,45 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Game Non-Play Control",
+            "id": "87e1b8b8-599e-4a28-af75-a43adbefe5db",
+            "actions": [
+                {
+                    "name": "Select Car",
+                    "type": "Button",
+                    "id": "1de25cbe-2a1f-4f6e-a0b3-d115f1410629",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b633fa7a-efd8-406c-8c89-92c26f58c8e3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Select Car",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0560cbc4-b63a-4ca1-a5a5-6f4ff596feb4",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "Select Car",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

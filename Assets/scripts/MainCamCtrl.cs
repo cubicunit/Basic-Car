@@ -23,6 +23,37 @@ public class MainCamCtrl : MonoBehaviour
     [SerializeField] public Vector3 maxClamp;
     [SerializeField] public Vector3 minClamp;
 
+    [SerializeField] public Vector3 birdModeOffset;
+
+    private UIManager uIManager;
+
+    public void Awake() {
+        uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+    }
+
+    public void changeBirdMode() {
+        uIManager.toBirdMode();
+        camMode = CAMERAMODE.SPECTATE;
+
+        Vector3 desiredPosition = target.position + birdModeOffset;
+        this.transform.position = desiredPosition;
+
+        this.transform.LookAt(target, Vector3.forward);
+
+        if (viewType == VIEWTYPE.FIRST_PERSON_VIEW) {
+            inputActionAsset.FindAction("Game Non-Play Control/Select Car").Enable();
+        }
+    }
+
+    public void changeGameMode(){
+        uIManager.toGameMode();
+        camMode = CAMERAMODE.PLAY;
+
+        if (viewType == VIEWTYPE.FIRST_PERSON_VIEW) {
+            inputActionAsset.FindAction("Game Non-Play Control/Select Car").Disable();
+        }        
+    }
+
     public void look(LOOKDIR dir) {
         target.GetComponent<CarController>().look(dir);
     }
@@ -35,11 +66,11 @@ public class MainCamCtrl : MonoBehaviour
             if (viewType == VIEWTYPE.FIRST_PERSON_VIEW) {
                 //Enable Mirror UI
                 carMirrorsUI.SetActive(true);
-                inputActionAsset.FindAction("Game Control/Select Car").Disable();
+                inputActionAsset.FindAction("Game Non-Play Control/Select Car").Disable();
             } else {
                 //Disable Mirror 
                 carMirrorsUI.SetActive(false);
-                inputActionAsset.FindAction("Game Control/Select Car").Enable();
+                inputActionAsset.FindAction("Game Non-Play Control/Select Car").Enable();
             }
 
             camMode = CAMERAMODE.PLAY;
@@ -56,15 +87,22 @@ public class MainCamCtrl : MonoBehaviour
         }
     }
 
+    public void panBirdCam(Vector2 delta){
+        delta = delta * -0.01f;
+        Vector3 delta3d = new Vector3(delta.x, delta.y, 0);
+        this.transform.Translate(delta3d, Space.Self);
+    }
 
-    public void panCamera(Vector2 delta) {
+    public void lookAt(Vector2 delta) {
         if (viewType == VIEWTYPE.FIRST_PERSON_VIEW){
             if (delta.x > 0) {
                 this.look(LOOKDIR.RIGHT);
             } else {
                 this.look(LOOKDIR.LEFT);
             }
-        } else {
+        } 
+        /*
+        else {
             if (camMode == CAMERAMODE.PLAY) {
                 gearShifter.parkCar();
                 camMode = CAMERAMODE.SPECTATE;
@@ -86,11 +124,13 @@ public class MainCamCtrl : MonoBehaviour
                 this.transform.position = newPos;
             }
         }
+        */
     }
 
-    public void resetCamMode(Vector2 position) {
-        camMode = CAMERAMODE.PLAY;
-        look(LOOKDIR.CENTER);
+    public void lookCenter(Vector2 position) {
+        if (viewType == VIEWTYPE.FIRST_PERSON_VIEW){
+            look(LOOKDIR.CENTER);
+        }
     }
 
     private void firstPersonView() {
@@ -165,20 +205,22 @@ public class MainCamCtrl : MonoBehaviour
     private void FixedUpdate() {
         if (camMode == CAMERAMODE.SPECTATE) return;
 
-        switch (viewType) {
-            case VIEWTYPE.FIRST_PERSON_VIEW:
-                firstPersonView();
-                applyLookToVisual();
-                break;
-            case VIEWTYPE.TOP_DOWN_VIEW:
-                topDownView();
-                break;
-            case VIEWTYPE.THIRD_PERSON_VIEW:
-                thirdPersonView();
-                break;
-            default:
-                thirdPersonView();
-                break;
+        if (camMode == CAMERAMODE.PLAY) {
+            switch (viewType) {
+                case VIEWTYPE.FIRST_PERSON_VIEW:
+                    firstPersonView();
+                    applyLookToVisual();
+                    break;
+                case VIEWTYPE.TOP_DOWN_VIEW:
+                    topDownView();
+                    break;
+                case VIEWTYPE.THIRD_PERSON_VIEW:
+                    thirdPersonView();
+                    break;
+                default:
+                    thirdPersonView();
+                    break;
+            }
         }
     }
 }
