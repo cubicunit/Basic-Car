@@ -69,7 +69,11 @@ public class MainCamCtrl : MonoBehaviour
                 inputActionAsset.FindAction("Game Non-Play Control/Select Car").Disable();
             } else {
                 //Disable Mirror 
-                carMirrorsUI.SetActive(false);
+                if (target.GetComponent<CarController>().gearBox == GEARTYPE.REVERSE){
+                    carMirrorsUI.SetActive(true);
+                } else {
+                    carMirrorsUI.SetActive(false);
+                }
                 inputActionAsset.FindAction("Game Non-Play Control/Select Car").Enable();
             }
 
