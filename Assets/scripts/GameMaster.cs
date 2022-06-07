@@ -7,6 +7,7 @@ public class GameMaster : MonoBehaviour
     public GAMESTATE gameState = GAMESTATE.PAUSE;
     private CamManager camManager; 
     private CarDriver carDriver; 
+    private InputManager inputManager;
 
     [Space(20)]
     [SerializeField] 
@@ -24,9 +25,6 @@ public class GameMaster : MonoBehaviour
  
     public float transitionTime = 1.0f;
 
-    // public void startGame() {
-    //     gameState = GAMESTATE.START;
-    // }
 
     public void pause() {
         Time.timeScale = 0;
@@ -44,6 +42,7 @@ public class GameMaster : MonoBehaviour
     private void Awake() {
         camManager = GameObject.Find("CameraManager").GetComponent<CamManager>();
         carDriver  = GameObject.Find("CarDriver").GetComponent<CarDriver>();
+        inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
 
         setTargetCar(carDriver.targetCar);
     }
@@ -61,6 +60,7 @@ public class GameMaster : MonoBehaviour
             if (park.GetComponent<ParkTrigger>().isTargetCarParked()){
                 Debug.Log("Car Parked.");
                 //levelFinish();
+                inputManager.disableGameControl();
                 stageEndUI.gameObject.SetActive(true);
             }
         }
