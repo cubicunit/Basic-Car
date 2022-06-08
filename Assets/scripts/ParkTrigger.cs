@@ -31,7 +31,6 @@ public class ParkTrigger : MonoBehaviour
                 return false;
             }            
         } else {
-            Debug.Log("Hihi");
             if ((frontTrigger.Contains(fl) || rearTrigger.Contains(fl))
                 && (frontTrigger.Contains(fr) || rearTrigger.Contains(fr))
                 && (frontTrigger.Contains(rl) || rearTrigger.Contains(rl))

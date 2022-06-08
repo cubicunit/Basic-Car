@@ -4,6 +4,8 @@ using BasicCarParking;
 // [ExecuteAlways]
 public class GameMaster : MonoBehaviour
 {
+    public GameStats stats = new GameStats();
+
     public GAMESTATE gameState = GAMESTATE.PAUSE;
     private CamManager camManager; 
     private CarDriver carDriver; 
